@@ -1,4 +1,4 @@
--- Remplace indent-blankline (indent), vim-maximizer (zen.zoom) et telescope (picker).
+-- Replaces indent-blankline (indent), vim-maximizer (zen.zoom), and telescope (picker).
 return {
     "folke/snacks.nvim",
     priority = 1000,
