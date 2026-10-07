@@ -1,6 +1,6 @@
--- La branche "master" (ancienne API) a été figée par upstream puis le repo
--- a été archivé le 2026-04-03 : la réécriture "main" (API différente, nécessite
--- Neovim >=0.12) est la seule branche qui reçoit encore des mises à jour.
+-- The "master" branch (old API) was frozen upstream and the repo was
+-- archived on 2026-04-03: the "main" rewrite (different API, requires
+-- Neovim >=0.12) is the only branch still receiving updates.
 return {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
@@ -24,8 +24,8 @@ return {
 
         require("nvim-treesitter").install(languages)
 
-        -- La branche main ne gère plus highlight/indent automatiquement :
-        -- ce sont les fonctionnalités natives de Neovim, activées par filetype.
+        -- The main branch no longer handles highlight/indent automatically:
+        -- these are native Neovim features, enabled per filetype.
         vim.api.nvim_create_autocmd("FileType", {
             pattern = {
                 "sh",

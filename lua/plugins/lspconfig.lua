@@ -1,7 +1,7 @@
--- LSP : les serveurs sont fournis par Nix (plus de mason), nvim-lspconfig
--- ne sert qu'à fournir leurs configurations par défaut (dossier lsp/).
--- Un serveur n'est activé que si son binaire est dans le PATH : la même config
--- marche sur le serveur (peu d'outils) comme sur le laptop (outils de dev complets).
+-- LSP: servers are provided by Nix (no more mason), nvim-lspconfig only
+-- supplies their default configs (lsp/ folder). A server is enabled only
+-- if its binary is in PATH: the same config works on the server (few tools)
+-- and on the laptop (full dev tooling).
 
 local servers = {
     "lua_ls",
@@ -17,7 +17,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         { "antosha417/nvim-lsp-file-operations", config = true },
-        -- Remplace neodev.nvim (abandonné) : complétion de l'API Neovim dans les fichiers Lua.
+        -- Replaces neodev.nvim (abandoned): Neovim API completion in Lua files.
         { "folke/lazydev.nvim", ft = "lua", opts = {} },
     },
     config = function()
@@ -83,7 +83,7 @@ return {
             end,
         })
 
-        -- API native de Neovim (0.11+) : capacités de complétion communes à tous les serveurs.
+        -- Native Neovim API (0.11+): completion capabilities shared by all servers.
         vim.lsp.config("*", {
             capabilities = require("blink.cmp").get_lsp_capabilities(),
         })

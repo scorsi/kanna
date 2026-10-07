@@ -2,7 +2,7 @@ return {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-        -- Les formateurs viennent du PATH (fournis par Nix) ; un formateur absent est ignoré.
+        -- Formatters come from PATH (provided by Nix); a missing formatter is ignored.
         local conform = require("conform")
 
         conform.setup({
