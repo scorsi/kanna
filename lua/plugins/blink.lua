@@ -6,6 +6,8 @@ return {
         {
             "L3MON4D3/LuaSnip",
             version = "v2.*",
+            -- Optional: needs make + a C compiler. Skipped install just
+            -- drops regex-triggered snippets, nothing else breaks.
             build = "make install_jsregexp",
         },
         "rafamadriz/friendly-snippets",
@@ -27,6 +29,8 @@ return {
         sources = {
             default = { "lsp", "path", "snippets", "buffer" },
         },
+        -- "rust" needs cargo/rustc on PATH at first install (sekkeizu provides
+        -- them); falls back cleanly to "lua" otherwise, just slower matching.
         fuzzy = { implementation = "rust" },
     },
 }
