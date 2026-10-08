@@ -20,10 +20,10 @@ Guidance for Claude Code when working in this repo. See [README.md](README.md) f
 
 ## This repo and sekkeizu
 
-sekkeizu consumes this repo as the flake input `kanna = github:scorsi/kanna` (pinned in its
+sekkeizu consumes this repo as the flake input `scorsi-kanna = github:scorsi/kanna` (pinned in its
 `flake.lock`), not as a submodule. On jiban, `~/.config/nvim` links to this clone
 (`~/repositories/kanna`, `programs.kanna.devPath`): Lua edits are live, Nix edits need a push and
-`nix flake update kanna` in sekkeizu (README, "Changing things").
+`nix flake update scorsi-kanna` in sekkeizu (README, "Changing things").
 
 `init.lua` must keep working read-only from the store: never write next to the config, and keep
 anything lazy.nvim persists (lockfile copy, state) under `stdpath("state")`/`stdpath("data")`.
