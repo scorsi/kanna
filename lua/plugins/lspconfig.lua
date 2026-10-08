@@ -10,6 +10,7 @@ local servers = {
     "taplo", -- TOML
     "bashls",
     "jsonls",
+    "nim_langserver",
 }
 
 return {

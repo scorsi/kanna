@@ -12,6 +12,7 @@ return {
                 yaml = { "yamlfmt" },
                 bash = { "shfmt" },
                 json = { "prettier" },
+                nim = { "nimpretty" },
             },
             format_on_save = {
                 lsp_fallback = true,
