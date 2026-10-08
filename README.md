@@ -51,9 +51,9 @@ The update checker is off in both: plugins only move when the lock does.
 - **Lua** (on a machine with `devPath`, e.g. jiban): edit the clone, restart Neovim. No rebuild.
 - **Nix** (`flake.nix`, `nix/`): test from sekkeizu against the local clone, without pushing:
   ```bash
-  nix run .#switch -- --override-input kanna path:$HOME/repositories/kanna
+  nix run .#switch -- --override-input scorsi-kanna path:$HOME/repositories/kanna
   ```
-  Then push kanna, and in sekkeizu: `nix flake update kanna`, `nix run .#switch`, commit
+  Then push kanna, and in sekkeizu: `nix flake update scorsi-kanna`, `nix run .#switch`, commit
   `flake.lock`.
 
 ## No mason
