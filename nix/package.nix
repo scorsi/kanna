@@ -2,7 +2,7 @@
 # compiles parsers with the tree-sitter CLI and a C compiler, blink.cmp builds its matcher with
 # cargo, LuaSnip runs make). Appended to PATH, so the user's own versions still win.
 #
-# With `config`, the binary starts on that Lua config (`-u`): what `nix run` uses. Without it, it
+# With `luaConfig`, the binary starts on that Lua config (`-u`): what `nix run` uses. Without it, it
 # reads ~/.config/nvim as usual: what the home-manager module installs, since it manages that link.
 {
   lib,
@@ -16,7 +16,7 @@
   rustc,
   gnumake,
   gcc,
-  config ? null,
+  luaConfig ? null,
 }:
 let
   # macOS gets its compiler from the Command Line Tools; nixpkgs' wrapped clang would add its own
@@ -36,7 +36,7 @@ symlinkJoin {
   nativeBuildInputs = [ makeWrapper ];
   postBuild = ''
     wrapProgram $out/bin/nvim --suffix PATH : ${lib.makeBinPath buildTools} ${
-      lib.optionalString (config != null) "--add-flags '-u ${config}/init.lua'"
+      lib.optionalString (luaConfig != null) "--add-flags '-u ${luaConfig}/init.lua'"
     }
   '';
   meta = {
