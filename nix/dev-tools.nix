@@ -9,7 +9,22 @@ pkgs: with pkgs; [
   taplo
   bash-language-server
   nimlangserver
-  vscode-langservers-extracted # jsonls
+  vscode-langservers-extracted # jsonls, cssls
+  # nixpkgs' astro-ls requires `typescript` at load time without shipping it, so it dies before
+  # reading the project. This TypeScript only lets it start: a project's own (node_modules) is still
+  # the one it analyses with. Wrapped rather than overridden, so the server isn't rebuilt.
+  (symlinkJoin {
+    name = "astro-language-server-with-typescript";
+    paths = [ astro-language-server ];
+    nativeBuildInputs = [ makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/astro-ls --prefix NODE_PATH : ${typescript}/lib/node_modules
+    '';
+  })
+  svelte-language-server
+  typescript-language-server
+  # ts_ls's fallback when a project has no typescript of its own (astro and svelte use the project's).
+  typescript
   # Formatters and linters
   stylua
   nixfmt

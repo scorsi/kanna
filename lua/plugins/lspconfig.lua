@@ -13,7 +13,11 @@ local servers = {
     taplo = "taplo", -- TOML
     bashls = "bash-language-server",
     jsonls = "vscode-json-language-server",
+    cssls = "vscode-css-language-server",
     nim_langserver = "nimlangserver",
+    astro = "astro-ls",
+    svelte = "svelteserver",
+    ts_ls = "typescript-language-server",
 }
 
 return {

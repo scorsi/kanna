@@ -3,6 +3,8 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
         -- Formatters come from PATH (provided by Nix); a missing formatter is ignored.
+        -- prettier is the project's own when it has one (node_modules/.bin), with
+        -- its plugins (prettier-plugin-astro/svelte), and the PATH one otherwise.
         local conform = require("conform")
 
         conform.setup({
@@ -12,6 +14,11 @@ return {
                 yaml = { "yamlfmt" },
                 bash = { "shfmt" },
                 json = { "prettier" },
+                astro = { "prettier" },
+                svelte = { "prettier" },
+                typescript = { "prettier" },
+                javascript = { "prettier" },
+                css = { "prettier" },
                 nim = { "nimpretty" },
             },
             format_on_save = {
