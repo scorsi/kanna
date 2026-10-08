@@ -27,7 +27,7 @@
     in
     {
       packages = forAllSystems (system: {
-        default = (pkgsFor system).callPackage ./nix/package.nix { config = configDir; };
+        default = (pkgsFor system).callPackage ./nix/package.nix { luaConfig = configDir; };
       });
 
       homeModules.default = import ./nix/home-module.nix { inherit configDir; };
