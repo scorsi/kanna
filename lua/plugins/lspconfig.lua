@@ -3,14 +3,17 @@
 -- if its binary is in PATH: the same config works on the server (few tools)
 -- and on the laptop (full dev tooling).
 
+-- Server name -> the binary to look for. Named here rather than read from the
+-- default config: many configs' `cmd` is a function (it prefers the project's
+-- node_modules/.bin), which has no binary name to check.
 local servers = {
-    "lua_ls",
-    "nil_ls", -- Nix
-    "yamlls",
-    "taplo", -- TOML
-    "bashls",
-    "jsonls",
-    "nim_langserver",
+    lua_ls = "lua-language-server",
+    nil_ls = "nil", -- Nix
+    yamlls = "yaml-language-server",
+    taplo = "taplo", -- TOML
+    bashls = "bash-language-server",
+    jsonls = "vscode-json-language-server",
+    nim_langserver = "nimlangserver",
 }
 
 return {
@@ -89,10 +92,8 @@ return {
             capabilities = require("blink.cmp").get_lsp_capabilities(),
         })
 
-        for _, name in ipairs(servers) do
-            local cfg = vim.lsp.config[name]
-            local cmd = cfg and cfg.cmd
-            if type(cmd) == "table" and vim.fn.executable(cmd[1]) == 1 then
+        for name, bin in pairs(servers) do
+            if vim.fn.executable(bin) == 1 then
                 vim.lsp.enable(name)
             end
         end
