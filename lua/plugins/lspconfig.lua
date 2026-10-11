@@ -19,6 +19,7 @@ local servers = {
     svelte = "svelteserver",
     ts_ls = "typescript-language-server",
     rust_analyzer = "rust-analyzer",
+    gopls = "gopls",
 }
 
 return {

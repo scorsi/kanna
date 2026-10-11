@@ -26,6 +26,7 @@ pkgs: with pkgs; [
   # ts_ls's fallback when a project has no typescript of its own (astro and svelte use the project's).
   typescript
   rust-analyzer
+  gopls
   # Formatters and linters
   stylua
   nixfmt
@@ -37,4 +38,6 @@ pkgs: with pkgs; [
   # nimlangserver drives nimsuggest from the compiler, nimpretty ships with it.
   nim
   nimble
+  # gofmt ships with the Go toolchain.
+  go
 ]

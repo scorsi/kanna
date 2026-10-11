@@ -21,6 +21,7 @@ return {
                 css = { "prettier" },
                 nim = { "nimpretty" },
                 rust = { "rustfmt" },
+                go = { "gofmt" },
             },
             format_on_save = {
                 lsp_fallback = true,
