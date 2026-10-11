@@ -25,6 +25,7 @@ pkgs: with pkgs; [
   typescript-language-server
   # ts_ls's fallback when a project has no typescript of its own (astro and svelte use the project's).
   typescript
+  rust-analyzer
   # Formatters and linters
   stylua
   nixfmt
@@ -32,6 +33,7 @@ pkgs: with pkgs; [
   yamlfmt
   yamllint
   prettier
+  rustfmt
   # nimlangserver drives nimsuggest from the compiler, nimpretty ships with it.
   nim
   nimble

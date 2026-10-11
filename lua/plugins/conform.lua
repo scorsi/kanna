@@ -20,6 +20,7 @@ return {
                 javascript = { "prettier" },
                 css = { "prettier" },
                 nim = { "nimpretty" },
+                rust = { "rustfmt" },
             },
             format_on_save = {
                 lsp_fallback = true,

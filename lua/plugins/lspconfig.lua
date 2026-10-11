@@ -18,6 +18,7 @@ local servers = {
     astro = "astro-ls",
     svelte = "svelteserver",
     ts_ls = "typescript-language-server",
+    rust_analyzer = "rust-analyzer",
 }
 
 return {
