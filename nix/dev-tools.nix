@@ -23,6 +23,7 @@ pkgs: with pkgs; [
   })
   svelte-language-server
   typescript-language-server
+  tailwindcss-language-server
   # ts_ls's fallback when a project has no typescript of its own (astro and svelte use the project's).
   typescript
   rust-analyzer
